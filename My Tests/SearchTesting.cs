@@ -10,9 +10,11 @@ namespace My_Tests
     {
         public static int SearchLinear(int[] numbers, int value)
         {
-            foreach (int i in numbers)
+            if (numbers == null) return -1;
+
+            for (int i = 0; i < numbers.Length; i++) 
             {
-                if (i == value) return i;
+                if (numbers[i] == value) return i;
             }
             return -1;
         }
