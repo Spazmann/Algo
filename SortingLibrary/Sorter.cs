@@ -78,7 +78,7 @@ namespace SortingLibrary
                 int pos = i;
                 while(!cantSwap)
                 {
-                    if (arr[pos].CompareTo(arr[pos + 1]) > 0 && pos != -1)
+                    if (pos != -1 && arr[pos].CompareTo(arr[pos + 1]) > 0 )
                     {
                         T temp = arr[pos];
                         arr[pos] = arr[pos + 1];
