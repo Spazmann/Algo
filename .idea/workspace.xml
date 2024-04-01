@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="65c4cc0d-f90f-42fe-9aee-519de378f1bb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/SortingLibrary/Sorter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SortingLibrary/Sorter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestProject/SorterTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/SorterTests.cs" afterDir="false" />
-    </list>
+    <list default="true" id="65c4cc0d-f90f-42fe-9aee-519de378f1bb" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,6 +34,7 @@
       <updated>1711638015428</updated>
       <workItem from="1711638016615" duration="4000" />
       <workItem from="1711643419461" duration="5000" />
+      <workItem from="1711929469481" duration="17000" />
     </task>
     <servers />
   </component>

@@ -55,5 +55,70 @@ namespace SortingLibrary
                 }
             }
         }
+
+        /**
+         * If array is empty, return null
+         * Iterates through each element of the array
+         *      i set to pos
+         *      canSwap bool to false
+         *      while till can't swap
+         *      If i+1 is smaller than i and i is not -1
+         *          swap
+         *          i minus one
+         *      else
+         *          set cantSwap to true
+         */
+        public static void InsertionSort(T[] arr)
+        {
+            if (arr == null) throw new NullReferenceException();
+
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                bool cantSwap = false;
+                int pos = i;
+                while(!cantSwap)
+                {
+                    if (arr[pos].CompareTo(arr[pos + 1]) > 0 && pos != -1)
+                    {
+                        T temp = arr[pos];
+                        arr[pos] = arr[pos + 1];
+                        arr[pos + 1] = temp;
+                        pos = pos - 1;
+                    } else
+                    {
+                        cantSwap = true;
+                    }
+                }
+            }
+        }
+
+        /**
+        * If array is empty, return null
+        * Iterates through each element of the array
+        *       i set to pos
+        *       Iterates through each element of the array (j starting at i)
+        *           If pos is smaller than j+1
+        *               pos = j
+        *       swap i and pos
+        */
+        public static void SelectionSort(T[] arr)
+        {
+            if (arr == null) throw new NullReferenceException();
+
+            for (int i = 0; i <= arr.Length - 1; i++)
+            {
+                int pos = i;
+                for (int j = 0 + i; j <= arr.Length - 1; j++)
+                {
+                    if (arr[pos].CompareTo(arr[j]) > 0)
+                    {
+                        pos = j;
+                    }
+                }
+                T temp = arr[pos];
+                arr[pos] = arr[i];
+                arr[i] = temp;
+            }
+        }
     }
 }
