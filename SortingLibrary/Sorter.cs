@@ -57,6 +57,16 @@ namespace SortingLibrary
         }
 
         /**
+         * Insertion sort starts off by checking if the array is null to quickly get rid of useless arrays.
+         * After that, I make a for loop that iterates through the entire array to be sure to get each number in the array.
+         * I set 2 variables "cantSwap" it tells the while statement later that if a swap cannot happen go to the next number 
+         * and "pos" which is the pointer when moving the smaller number down the array.
+         * I set a while with !cantswap to continue to go through the entire 'solved' array (<i).
+         * After that it will grab the current pos and compare it to the one ahead by one. If it is less that pos it will swap 
+         * and move pos down 1 to continue comparing till it reaches the begining of the array or it finds a number smaller than it.
+         * This will sort using the Insertion sort method. 
+         * 
+         * Pseudo-code:
          * If array is empty, return null
          * Iterates through each element of the array
          *      i set to pos
@@ -70,22 +80,36 @@ namespace SortingLibrary
          */
         public static void InsertionSort(T[] arr)
         {
+            // BIG-O O(n^2) 
+            // Reason: Two loops depeding on size (and luck) of the array
+
+            // O(1)          // O(1)
             if (arr == null) throw new NullReferenceException();
 
+            //   0(1)       0(n)                O(1)
             for (int i = 0; i < arr.Length - 1; i++)
             {
+                // 0(1)
                 bool cantSwap = false;
+                // 0(1)
                 int pos = i;
-                while(!cantSwap)
+                // 0(n)
+                while (!cantSwap)
                 {
+                        // 0(1)      // 0(1)
                     if (pos != -1 && arr[pos].CompareTo(arr[pos + 1]) > 0 )
                     {
+                        // 0(1)
                         T temp = arr[pos];
+                        // 0(1)
                         arr[pos] = arr[pos + 1];
+                        // 0(1)
                         arr[pos + 1] = temp;
+                        // 0(1)
                         pos = pos - 1;
                     } else
                     {
+                        // 0(1)
                         cantSwap = true;
                     }
                 }
@@ -93,30 +117,50 @@ namespace SortingLibrary
         }
 
         /**
+        * Selection sort starts off by checking if the array is null like the other methods. 
+        * First I make a for loop that goes through each element of the array.
+        * I make pos the smallest number in the array first with i then I check every single element that is smaller than pos with another for loop that starts at i.
+        * If I find a number smaller it will make that index the new pos. 
+        * When it reaches the end of the array it will swap i and pos with each other. 
+        * This will sort using the Selection sort method.
+        * 
+        * 
+        * Pseudo-code:
         * If array is empty, return null
         * Iterates through each element of the array
         *       i set to pos
         *       Iterates through each element of the array (j starting at i)
-        *           If pos is smaller than j+1
+        *           If pos is smaller than j
         *               pos = j
         *       swap i and pos
         */
         public static void SelectionSort(T[] arr)
         {
-            if (arr == null) throw new NullReferenceException();
+            // BIG-O O(n^2) 
+            // Reason: Two loops depeding on size (and luck) of the array
 
+            // O(1)          // O(1)
+            if (arr == null) throw new NullReferenceException();
+            //   0(1)    0(n)                    O(1)
             for (int i = 0; i <= arr.Length - 1; i++)
             {
+                // 0(1)
                 int pos = i;
+                //   0(1)           0(n)                 O(1)
                 for (int j = 0 + i; j <= arr.Length - 1; j++)
                 {
+                        // 0(1)
                     if (arr[pos].CompareTo(arr[j]) > 0)
                     {
+                        // 0(1)
                         pos = j;
                     }
                 }
+                // 0(1)
                 T temp = arr[pos];
+                // 0(1)
                 arr[pos] = arr[i];
+                // 0(1)
                 arr[i] = temp;
             }
         }

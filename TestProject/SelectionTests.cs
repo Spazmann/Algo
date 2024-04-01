@@ -19,6 +19,17 @@ namespace SortingLibraryTests
         }
 
         [TestMethod]
+        public void SelectionSortBasicTest()
+        {
+            int[] testArray = { 48, 13, 8, 38, 16, 1, 33, 25, 42, 50 };
+            int[] expectedResult = { 1, 8, 13, 16, 25, 33, 38, 42, 48, 50 };
+
+            Sorter<int>.SelectionSort(testArray);
+
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(NullReferenceException))]
         public void SelectionSortReturnsErrorIfEmptyArray()
         {

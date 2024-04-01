@@ -5,7 +5,7 @@ using System.Text;
 namespace SortingLibraryTests
 {
     [TestClass]
-    public class SorterTests
+    public class BubbleSortTests
     {
         private int itemsInArray = 100;
         protected int[] hunRand;
@@ -15,7 +15,7 @@ namespace SortingLibraryTests
 
         #region setupCode
 
-        public SorterTests()
+        public BubbleSortTests()
         {
             hunRand = new int[itemsInArray];
             hunDesc = new int[itemsInArray];
