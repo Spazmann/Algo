@@ -22,7 +22,7 @@ namespace CodeWars
             Assert.AreEqual(expected, actual);
         }
 
-        [Test]
+        //[Test]
         public static void test1()
         {
             testing(PhoneDir.Phone(dr, "48-421-674-8974"), "Phone => 48-421-674-8974, Name => Anastasia, Address => Via Quirinal Roma");

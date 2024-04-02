@@ -58,25 +58,27 @@ namespace SortingLibrary
 
         /**
          * Insertion sort starts off by checking if the array is null to quickly get rid of useless arrays.
-         * After that, I make a for loop that iterates through the entire array to be sure to get each number in the array.
-         * I set 2 variables "cantSwap" it tells the while statement later that if a swap cannot happen go to the next number 
-         * and "pos" which is the pointer when moving the smaller number down the array.
-         * I set a while with !cantswap to continue to go through the entire 'solved' array (<i).
-         * After that it will grab the current pos and compare it to the one ahead by one. If it is less that pos it will swap 
-         * and move pos down 1 to continue comparing till it reaches the begining of the array or it finds a number smaller than it.
-         * This will sort using the Insertion sort method. 
+         * I create a for loop right after that starts at 1 becasue the the array is already sorted at 0 through 0.
+         * I make three variables, one for the while loop, one to set pos which pos will go down the array to find where to insert the number,
+         * and a variable that copys the current index.
+         * I create the while loop that first checks the if the pos is 0 so that it doesn't cause out of index errors.
+         * Then it copies the pos-1 to the current pos. This is what I changed so I can insert it later.
+         * Lastly I create a if statement to check if pos in greater than number and if it is is will subtract pos by one,
+         * but if it isn't it will insert the number in the array go back to the for loop.
          * 
          * Pseudo-code:
          * If array is empty, return null
          * Iterates through each element of the array
          *      i set to pos
-         *      canSwap bool to false
-         *      while till can't swap
-         *      If i+1 is smaller than i and i is not -1
-         *          swap
-         *          i minus one
+         *      inserted bool to false
+         *      store the number
+         *      while till it has inserted
+         *      if pos is equal to 0, insert number into index 0
+         *      copy the pos - 1 to the current pos
+         *      if the number is less than pos
+         *          pos minus one
          *      else
-         *          set cantSwap to true
+         *          insert the number at pos
          */
         public static void InsertionSort(T[] arr)
         {
@@ -86,31 +88,37 @@ namespace SortingLibrary
             // O(1)          // O(1)
             if (arr == null) throw new NullReferenceException();
 
-            //   0(1)       0(n)                O(1)
-            for (int i = 0; i < arr.Length - 1; i++)
+            //   0(1)       0(n)            O(1)
+            for (int i = 1; i < arr.Length; i++)
             {
                 // 0(1)
-                bool cantSwap = false;
+                bool inserted = false;
                 // 0(1)
                 int pos = i;
+                // 0(1)
+                T number = arr[i];
                 // 0(n)
-                while (!cantSwap)
+                while (!inserted)
                 {
-                        // 0(1)      // 0(1)
-                    if (pos != -1 && arr[pos].CompareTo(arr[pos + 1]) > 0 )
+                    //  0(1)
+                    if (pos == 0)
                     {
                         // 0(1)
-                        T temp = arr[pos];
+                        arr[0] = number;
                         // 0(1)
-                        arr[pos] = arr[pos + 1];
+                        break;
+                    }
+                    arr[pos] = arr[pos - 1];
+                    //  0(1) 
+                    if (number.CompareTo(arr[pos]) < 0 )
+                    {
                         // 0(1)
-                        arr[pos + 1] = temp;
-                        // 0(1)
-                        pos = pos - 1;
+                        pos--;
                     } else
                     {
                         // 0(1)
-                        cantSwap = true;
+                        arr[pos] = number;
+                        inserted = true;
                     }
                 }
             }
